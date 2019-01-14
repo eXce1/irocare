@@ -6,7 +6,7 @@
   <div class="row">
 
     <div class="col-xs-6 col-sm-4">
-      <%= link_to  do %>
+      <%= link_to bridges_path do %>
       <div class="card" style="background-image: url(<%= image_path 'attribution.svg' %>);">
         <div class="card-category">Attribution</div>
       </div>
@@ -32,9 +32,11 @@
     </div>
 
     <div class="col-xs-6 col-sm-4">
+      <%= link_to bridges_path do %>
       <div class="card" style="background-image: url(<%= image_path 'bridge.svg' %>);">
         <div class="card-category">Bridges</div>
       </div>
+      <% end %>
     </div>
 
     <div class="col-xs-6 col-sm-4">
