@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-sm-4">
+      <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">ID Bridge</th>
+          <th scope="col">Dernière connexion</th>
+          <th scope="col">Lieu</th>
+          <th scope="col">Fugue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bridges.each do |bridge| %>
+        <tr>
+          <% if bridge.fugue && bridge.location == "" %>
+            <th scope="row"><%= bridge.id %> <i class="fas fa-edit"></i></th>
+          <% else %>
+            <th scope="row"><%= bridge.id %></th>
+          <% end %>
+
+          <td><%= bridge.last_connexion %></td>
+
+          <% if bridge.location == "" %>
+            <td>
+              <span style="font-size: 18px; color: red;">
+                <i class="fas fa fa-times-circle"></i>
+              </span>
+            </td>
+            <% else %>
+          <td><%= bridge.location %></td>
+            <% end %>
+
+          <% if bridge.fugue == "" %>
+            <td>
+              <span style="font-size: 18px; color: red;">
+                <i class="fas fa fa-times-circle"></i>
+              </span>
+            </td>
+            <% else %>
+          <td><%= bridge.fugue %></td>
+            <% end %>
+        <% end %>
+        </tr>
+      </tbody>
+      </table>
+  </div>
+</div>
+
