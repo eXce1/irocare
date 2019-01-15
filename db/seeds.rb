@@ -9,6 +9,7 @@ require 'faker'
 
 User.destroy_all
 Bridge.destroy_all
+Appointment.destroy_all
 
 puts "Creating admins accounts..."
 
@@ -50,4 +51,19 @@ fugue = ["", "non", "non", "oui", "non"]
 end
 puts "5 bridges created."
 
+# puts "Creating appointments..."$
+# location = ["Salle A", "Salle B", "Sport", "Salle C", "Salle D", "Accueil"]
+# duration = ["15","30","45"]
+# 5.times do |index|
+#   Appointment.create!([
+# {
+#   date: Faker::Date.forward(10),
+#   location = location.sample,
+#   duration = duration.sample,
+#   doctor: Faker::Name.name
+# ])
+# puts 'Few appointments created.'
+
 puts "Seeds successfully loaded."
+
+
