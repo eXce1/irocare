@@ -19,10 +19,24 @@ User.create!([
   role: "admin"
 }
 ])
+puts "One admin created."
+
+puts "Creating patients accounts..."
+email = ["patient1@gmail.com","patient2@gmail.com","patient3@gmail.com","patient4@gmail.com","patient5@gmail.com"]
+password = ["patient1", "patient2","patient3", "patient4","patient5"]
+5.times do |index|
+  User.create!([
+{
+  email: email[index],
+  password: password[index],
+  role: "patient"
+}
+])
+end
+puts "5 patients created."
 
 
 puts "Creating Bridge..."
-
 location = ["","Cantine","Etage 1", "Accueil", "Sport"]
 fugue = ["", "non", "non", "oui", "non"]
 5.times do |index|
@@ -34,5 +48,6 @@ fugue = ["", "non", "non", "oui", "non"]
 }
 ])
 end
+puts "5 bridges created."
 
 puts "Seeds successfully loaded."

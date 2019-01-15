@@ -3,6 +3,7 @@
     <div class="col-xs-12 col-sm-3 col-sm-offset-4">
         <%= simple_form_for @bridge do |f| %>
         <%= f.input :location,:collection => ["Salle A", "Sport", "Salle B", "Accueil", "Etage 1", "Etage 2"],:label => "Lieux",:include_blank => true %>
+        <%= f.input :fugue,:collection => ["Oui","Non"] %>
         <span class="btn"><%= f.button :submit %></span>
         <% end %>
     </div>

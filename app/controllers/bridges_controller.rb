@@ -12,7 +12,7 @@ class BridgesController < ApplicationController
   end
 
   def update
-    @bridge.update(params[:bridge])
+    @bridge.update(bridge_params)
     redirect_to bridges_path, notice: "Le bridge a été mis à jour."
   end
 
