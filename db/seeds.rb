@@ -7,9 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Alert.destroy_all
+Band.destroy_all
 User.destroy_all
 Bridge.destroy_all
-Appointment.destroy_all
+
+# Appointment.destroy_all
 
 puts "Creating admins accounts..."
 
@@ -50,6 +53,35 @@ fugue = ["", "non", "non", "oui", "non"]
 ])
 end
 puts "5 bridges created."
+
+puts "Creating 5 bands..."
+5.times do |index|
+  Band.create!([
+{
+  last_connexion: Faker::Date.backward(5),
+  wear: [true, false].sample,
+  user_id: User.first.id,
+  bridge_id: Bridge.first.id,
+}
+])
+end
+puts "5 bandes created."
+
+puts "Creating alerts..."
+# type_list = ["Fugue","Batterie faible", "Chute", "Perte bracelet"]
+location = ["Etage 2","Cantine","Etage 1", "Accueil", "Sport", "Salle A", "Salle B"]
+4.times do |index|
+  Alert.create!([
+{
+  date: Faker::Date.backward(2),
+  # type: ["Fugue","Batterie faible", "Chute", "Perte bracelet"].sample,
+  location: location.sample,
+  acquittement: false,
+  band_id: Band.first.id,
+}
+])
+end
+puts "Alerts created."
 
 # puts "Creating appointments..."$
 # location = ["Salle A", "Salle B", "Sport", "Salle C", "Salle D", "Accueil"]
