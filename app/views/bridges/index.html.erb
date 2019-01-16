@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-6 col-sm-4">
-      <table class="table table-bordered">
+
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th scope="col">ID Bridge</th>
@@ -13,37 +13,26 @@
       <tbody>
         <% @bridges.each do |bridge| %>
         <tr>
-          <% if bridge.fugue && bridge.location == "" %>
-            <th scope="row"><%= bridge.id %> <i class="fas fa-edit"></i></th>
-          <% else %>
-            <th scope="row"><%= bridge.id %></th>
-          <% end %>
-
+          <th scope="row"><%= bridge.id %></th>
           <td><%= bridge.last_connexion %></td>
 
-          <% if bridge.location == "" %>
-            <td>
-              <span style="font-size: 18px; color: red;">
-                <i class="fas fa fa-times-circle"></i>
-              </span>
+          <% if bridge.location && bridge.fugue == "" %>
+            <td colspan="2" class="danger" id="bridge-edit">
+              <div class="edit-data">
+                <%= link_to " Editer les données", bridge_path(bridge), class: "fas fa-edit bridge-edit" %>
+              </div>
             </td>
-            <% else %>
-          <td><%= bridge.location %></td>
-            <% end %>
-
-          <% if bridge.fugue == "" %>
-            <td>
-              <span style="font-size: 18px; color: red;">
-                <i class="fas fa fa-times-circle"></i>
-              </span>
-            </td>
-            <% else %>
-          <td><%= bridge.fugue %></td>
-            <% end %>
-        <% end %>
+          <% else %>
+            <td><%= bridge.location %></td>
+            <td><%= bridge.fugue %></td>
+          <% end %>
         </tr>
+        <% end %>
       </tbody>
-      </table>
+    </table>
+
   </div>
-</div>
+ </div>
+
+
 

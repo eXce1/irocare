@@ -13,6 +13,7 @@ User.destroy_all
 Bridge.destroy_all
 
 # Appointment.destroy_all
+puts "~~~~~~~~~WELCOME TO MY SEEDS~~~~~~~~~~~~~~~~~~~"
 
 puts "Creating admins accounts..."
 
@@ -24,6 +25,8 @@ User.create!([
 }
 ])
 puts "One admin created."
+
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 puts "Creating patients accounts..."
 email = ["patient1@gmail.com","patient2@gmail.com","patient3@gmail.com","patient4@gmail.com","patient5@gmail.com"]
@@ -39,6 +42,7 @@ password = ["patient1", "patient2","patient3", "patient4","patient5"]
 end
 puts "5 patients created."
 
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
 puts "Creating Bridge..."
 location = ["","Cantine","Etage 1", "Accueil", "Sport"]
@@ -54,6 +58,8 @@ fugue = ["", "non", "non", "oui", "non"]
 end
 puts "5 bridges created."
 
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
 puts "Creating 5 bands..."
 5.times do |index|
   Band.create!([
@@ -67,6 +73,23 @@ puts "Creating 5 bands..."
 end
 puts "5 bandes created."
 
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+# puts "Creating band data values..."
+#   Band_datum.created!([
+# {
+#  battery: 70,
+#  bpm: 65,
+#  temperature: 37.2,
+#  location: "Cuisine",
+#  pas: 100,
+#  band_id: 16
+# }
+# ])
+# puts "Band data created."
+
+# puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
 puts "Creating alerts..."
 # type_list = ["Fugue","Batterie faible", "Chute", "Perte bracelet"]
 location = ["Etage 2","Cantine","Etage 1", "Accueil", "Sport", "Salle A", "Salle B"]
@@ -74,7 +97,7 @@ location = ["Etage 2","Cantine","Etage 1", "Accueil", "Sport", "Salle A", "Salle
   Alert.create!([
 {
   date: Faker::Date.backward(2),
-  # type: ["Fugue","Batterie faible", "Chute", "Perte bracelet"].sample,
+  # type: type.sample,
   location: location.sample,
   acquittement: false,
   band_id: Band.first.id,
@@ -96,6 +119,6 @@ puts "Alerts created."
 # ])
 # puts 'Few appointments created.'
 
-puts "Seeds successfully loaded."
+puts "Seeds successfully loaded. GG!"
 
 

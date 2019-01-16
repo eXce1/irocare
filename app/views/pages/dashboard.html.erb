@@ -7,11 +7,9 @@
     <% if current_user.role == "admin" %>
 
     <div class="col-xs-6 col-sm-4">
-      <%= link_to bridges_path do %>
       <div class="card" style="background-image: url(<%= image_path 'attribution.svg' %>);">
         <div class="card-category">Attribution</div>
       </div>
-      <% end %>
     </div>
 
     <div class="col-xs-6 col-sm-4">
@@ -41,10 +39,13 @@
     </div>
 
     <div class="col-xs-6 col-sm-4">
+      <%= link_to pages_account_path do %>
       <div class="card" style="background-image: url(<%= image_path 'profile.svg' %>);">
         <div class="card-category">Créer un compte</div>
       </div>
+      <% end %>
     </div>
+
     <% else %>
       <div class="col-xs-6 col-sm-4">
         <div class="card" style="background-image: url(<%= image_path 'patient.svg' %>);">
@@ -52,7 +53,6 @@
         </div>
       </div>
     <% end %>
-
 
   </div>
 </div>
